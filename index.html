@@ -1,1 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سورة البقرة - آيات ١٧٠-١٧٦ | Surah Al-Baqarah - Verses 170-176</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            padding-top: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .audio-player-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .audio-player-section h3 {
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .audio-player-section p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .audio-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 25px;
+            outline: none;
+            height: 54px;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+        }
+
+        audio:focus {
+            outline: 2px solid #8b4513;
+            outline-offset: 2px;
+        }
+
+        .reciter-info {
+            font-family: 'Amiri', serif;
+            color: #8b4513;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .verse-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .verse-btn {
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            min-width: 80px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .verse-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .verse-btn.active {
+            background: linear-gradient(45deg, #a0522d, #8b4513);
+            box-shadow: 0 0 15px rgba(139, 69, 19, 0.5);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .arabic-title {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            color: #8b4513;
+            margin-bottom: 10px;
+            direction: rtl;
+        }
+
+        .page-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .verses-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow-x: hidden;
+        }
+
+        .verse {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(to right, #f8f9fa, #ffffff);
+            border-left: 5px solid #8b4513;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .verse:hover {
+            transform: translateX(5px);
+        }
+
+        .verse-number {
+            display: inline-block;
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri Quran', 'Amiri', serif;
+            font-size: 2rem;
+            line-height: 2.8;
+            text-align: right;
+            direction: rtl;
+            color: #1a472a;
+            margin: 20px 0;
+            padding: 25px;
+            background: #f8fdf9;
+            border-radius: 8px;
+            border: 2px solid #8b4513;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: none;
+        }
+
+        .english-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .reflection-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow-x: hidden;
+        }
+
+        .reflection-section h2 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .reflection-point {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(to right, #fff, #f8f9fa);
+            border-left: 4px solid #a0522d;
+            border-radius: 8px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .reflection-point h3 {
+            color: #8b4513;
+            margin-bottom: 15px;
+        }
+
+        .reflection-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            line-height: 2.2;
+            text-align: right;
+            direction: rtl;
+            color: #2c3e50;
+            padding: 15px;
+            background: #f8fdf9;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: none;
+        }
+
+        .reflection-english {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            color: #666;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .signature {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .signature-header {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .signature-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .signature-profile {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #667eea;
+            object-fit: cover;
+        }
+
+        .signature-info {
+            text-align: center;
+        }
+
+        .signature-name {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .signature-company {
+            color: #667eea;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .signature-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .signature-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .signature-btn {
+            padding: 10px 24px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .signature-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .signature-copyright {
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+
+            .arabic-title {
+                font-size: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.3rem;
+            }
+
+            .page-info {
+                font-size: 0.85rem;
+            }
+
+            .audio-player-section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .audio-player-section h3 {
+                font-size: 1.1rem;
+            }
+
+            .audio-player-section p {
+                font-size: 0.85rem;
+            }
+
+            audio {
+                max-width: 100%;
+            }
+
+            .verse-selector {
+                gap: 6px;
+            }
+
+            .verse-btn {
+                padding: 10px 14px;
+                font-size: 0.85rem;
+                flex: 0 0 calc(33.333% - 6px);
+                text-align: center;
+            }
+
+            .reciter-info {
+                font-size: 1rem;
+            }
+
+            .verses-container {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+
+            .verse {
+                padding: 15px;
+                margin-bottom: 25px;
+            }
+
+            .verse-number {
+                font-size: 0.85rem;
+                padding: 4px 12px;
+            }
+
+            .arabic-text {
+                font-size: 1.5rem;
+                line-height: 2.4;
+                padding: 15px;
+            }
+
+            .english-text {
+                font-size: 0.95rem;
+                padding: 12px;
+            }
+
+            .reflection-section {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+
+            .reflection-section h2 {
+                font-size: 1.4rem;
+            }
+
+            .reflection-point {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .reflection-point h3 {
+                font-size: 1rem;
+            }
+
+            .reflection-arabic {
+                font-size: 1.1rem;
+                line-height: 2;
+                padding: 12px;
+            }
+
+            .reflection-english {
+                font-size: 0.95rem;
+                padding: 12px;
+            }
+
+            .footer {
+                padding: 20px 15px;
+            }
+
+            .footer-text {
+                font-size: 0.9rem;
+            }
+
+            .nav-link {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+                margin: 0 5px;
+            }
+
+            .navigation {
+                margin-bottom: 15px;
+            }
+
+            .signature {
+                padding: 15px;
+            }
+
+            .signature-header {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+
+            .signature-profile {
+                width: 80px;
+                height: 80px;
+            }
+
+            .signature-name {
+                font-size: 1.3rem;
+            }
+
+            .signature-company {
+                font-size: 0.9rem;
+            }
+
+            .signature-description {
+                font-size: 0.85rem;
+            }
+
+            .signature-btn {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+
+            .signature-copyright {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .arabic-title {
+                font-size: 1.3rem;
+            }
+
+            .header h1 {
+                font-size: 1.1rem;
+            }
+
+            .verse-btn {
+                flex: 0 0 calc(50% - 6px);
+                padding: 12px 10px;
+                font-size: 0.8rem;
+            }
+
+            .arabic-text {
+                font-size: 1.3rem;
+                line-height: 2.2;
+                padding: 12px;
+            }
+
+            .english-text {
+                font-size: 0.9rem;
+            }
+
+            .reflection-arabic {
+                font-size: 1rem;
+                line-height: 1.9;
+            }
+
+            .reflection-english {
+                font-size: 0.9rem;
+            }
+
+            .nav-link {
+                display: block;
+                margin: 5px auto;
+                max-width: 200px;
+            }
+
+            .signature-profile {
+                width: 70px;
+                height: 70px;
+            }
+
+            .signature-name {
+                font-size: 1.2rem;
+            }
+
+            .signature-description {
+                font-size: 0.8rem;
+            }
+
+            .signature-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .signature-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .navigation {
+                display: none;
+            }
+            .audio-player-section {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        let currentVerse = 170;
+        
+        function playVerse(verseNumber) {
+            currentVerse = verseNumber;
+            const audio = document.getElementById('quranAudio');
+            const source = document.getElementById('audioSource');
+            
+            // Format verse number to 3 digits
+            const formattedVerse = String(verseNumber).padStart(3, '0');
+            
+            // Update audio source
+            source.src = `https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/002${formattedVerse}.mp3`;
+            
+            // Load and play
+            audio.load();
+            audio.play();
+            
+            // Update button styles
+            document.querySelectorAll('.verse-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        // Auto-play next verse when current one ends
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('quranAudio');
+            
+            audio.addEventListener('ended', function() {
+                if (currentVerse < 176) {
+                    const nextBtn = document.querySelector(`[onclick="playVerse(${currentVerse + 1})"]`);
+                    if (nextBtn) {
+                        nextBtn.click();
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <a href="#" class="nav-link">← Previous Page</a>
+            <a href="#" class="nav-link">Next Page →</a>
+        </div>
+
+        <div class="header">
+            <div class="arabic-title">سورة البقرة</div>
+            <h1>Surah Al-Baqarah (The Cow)</h1>
+            <div class="page-info">Page 26 | Verses 170-176</div>
+        </div>
+
+        <div class="audio-player-section">
+            <h3>🎧 استماع للآيات | Listen to the Verses</h3>
+            <p>القارئ: عبد الباسط عبد الصمد | Reciter: Abdul Basit Abdus Samad</p>
+            
+            <div class="audio-controls">
+                <audio id="quranAudio" controls>
+                    <source id="audioSource" src="https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/002170.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                
+                <div class="verse-selector">
+                    <button class="verse-btn active" onclick="playVerse(170)">Verse 170</button>
+                    <button class="verse-btn" onclick="playVerse(171)">Verse 171</button>
+                    <button class="verse-btn" onclick="playVerse(172)">Verse 172</button>
+                    <button class="verse-btn" onclick="playVerse(173)">Verse 173</button>
+                    <button class="verse-btn" onclick="playVerse(174)">Verse 174</button>
+                    <button class="verse-btn" onclick="playVerse(175)">Verse 175</button>
+                    <button class="verse-btn" onclick="playVerse(176)">Verse 176</button>
+                </div>
+                
+                <div class="reciter-info">
+                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                </div>
+            </div>
+        </div>
+
+        <div class="verses-container">
+            <div class="verse">
+                <span class="verse-number">Verse 170</span>
+                <div class="arabic-text">
+                    وَإِذَا قِيلَ لَهُمُ ٱتَّبِعُوا۟ مَآ أَنزَلَ ٱللَّهُ قَالُوا۟ بَلْ نَتَّبِعُ مَآ أَلْفَيْنَا عَلَيْهِ ءَابَآءَنَآ ۗ أَوَلَوْ كَانَ ءَابَآؤُهُمْ لَا يَعْقِلُونَ شَيْـًۭٔا وَلَا يَهْتَدُونَ
+                </div>
+                <div class="english-text">
+                    And when it is said to them, "Follow what Allah has revealed," they say, "Rather, we will follow that which we found our fathers doing." Even though their fathers understood nothing, nor were they guided?
+                </div>
+            </div>
+
+            <div class="verse">
+                <span class="verse-number">Verse 171</span>
+                <div class="arabic-text">
+                    وَمَثَلُ ٱلَّذِينَ كَفَرُوا۟ كَمَثَلِ ٱلَّذِى يَنْعِقُ بِمَا لَا يَسْمَعُ إِلَّا دُعَآءًۭ وَنِدَآءًۭ ۚ صُمٌّۢ بُكْمٌ عُمْىٌۭ فَهُمْ لَا يَعْقِلُونَ
+                </div>
+                <div class="english-text">
+                    The example of those who disbelieve is like that of one who shouts at what hears nothing but calls and cries - deaf, dumb and blind, so they do not understand.
+                </div>
+            </div>
+
+            <div class="verse">
+                <span class="verse-number">Verse 172</span>
+                <div class="arabic-text">
+                    يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُلُوا۟ مِن طَيِّبَٰتِ مَا رَزَقْنَٰكُمْ وَٱشْكُرُوا۟ لِلَّهِ إِن كُنتُمْ إِيَّاهُ تَعْبُدُونَ
+                </div>
+                <div class="english-text">
+                    O you who have believed, eat from the good things which We have provided for you and be grateful to Allah if it is [indeed] Him that you worship.
+                </div>
+            </div>
+
+            <div class="verse">
+                <span class="verse-number">Verse 173</span>
+                <div class="arabic-text">
+                    إِنَّمَا حَرَّمَ عَلَيْكُمُ ٱلْمَيْتَةَ وَٱلدَّمَ وَلَحْمَ ٱلْخِنزِيرِ وَمَآ أُهِلَّ بِهِۦ لِغَيْرِ ٱللَّهِ ۖ فَمَنِ ٱضْطُرَّ غَيْرَ بَاغٍۢ وَلَا عَادٍۢ فَلَآ إِثْمَ عَلَيْهِ ۚ إِنَّ ٱللَّهَ غَفُورٌۭ رَّحِيمٌ
+                </div>
+                <div class="english-text">
+                    He has only forbidden to you dead animals, blood, the flesh of swine, and that which has been dedicated to other than Allah. But whoever is forced [by necessity], neither desiring [it] nor transgressing [its limit], there is no sin upon him. Indeed, Allah is Forgiving and Merciful.
+                </div>
+            </div>
+
+            <div class="verse">
+                <span class="verse-number">Verse 174</span>
+                <div class="arabic-text">
+                    إِنَّ ٱلَّذِينَ يَكْتُمُونَ مَآ أَنزَلَ ٱللَّهُ مِنَ ٱلْكِتَٰبِ وَيَشْتَرُونَ بِهِۦ ثَمَنًۭا قَلِيلًا ۙ أُو۟لَٰٓئِكَ مَا يَأْكُلُونَ فِى بُطُونِهِمْ إِلَّا ٱلنَّارَ وَلَا يُكَلِّمُهُمُ ٱللَّهُ يَوْمَ ٱلْقِيَٰمَةِ وَلَا يُزَكِّيهِمْ وَلَهُمْ عَذَابٌ أَلِيمٌ
+                </div>
+                <div class="english-text">
+                    Indeed, those who conceal what Allah has sent down of the Scripture and exchange it for a small price - those consume not into their bellies except the Fire. And Allah will not speak to them on the Day of Resurrection, nor will He purify them. And they will have a painful punishment.
+                </div>
+            </div>
+
+            <div class="verse">
+                <span class="verse-number">Verse 175</span>
+                <div class="arabic-text">
+                    أُو۟لَٰٓئِكَ ٱلَّذِينَ ٱشْتَرَوُا۟ ٱلضَّلَٰلَةَ بِٱلْهُدَىٰ وَٱلْعَذَابَ بِٱلْمَغْفِرَةِ ۚ فَمَآ أَصْبَرَهُمْ عَلَى ٱلنَّارِ
+                </div>
+                <div class="english-text">
+                    Those are the ones who have exchanged guidance for error and forgiveness for punishment. How patient they are in pursuit of the Fire!
+                </div>
+            </div>
+
+            <div class="verse">
+                <span class="verse-number">Verse 176</span>
+                <div class="arabic-text">
+                    ذَٰلِكَ بِأَنَّ ٱللَّهَ نَزَّلَ ٱلْكِتَٰبَ بِٱلْحَقِّ ۗ وَإِنَّ ٱلَّذِينَ ٱخْتَلَفُوا۟ فِى ٱلْكِتَٰبِ لَفِى شِقَاقٍۭ بَعِيدٍۢ
+                </div>
+                <div class="english-text">
+                    That is [deserved by them] because Allah has sent down the Book in truth. And indeed, those who differ over the Book are in extreme dissension.
+                </div>
+            </div>
+        </div>
+
+        <div class="reflection-section">
+            <h2>💭 تأملات يومية | Daily Reflections</h2>
+            
+            <div class="reflection-point">
+                <h3>🔗 التقليد الأعمى | Blind Following</h3>
+                <div class="reflection-arabic">
+                    وإذا قيل لهم اتبعوا ما أنزل الله قالوا بل نتبع ما ألفينا عليه آباءنا! عندما يُقال لهم: اتبعوا ما أنزل الله، يردون: بل نتبع ما وجدنا عليه آباءنا! أولو كان آباؤهم لا يعقلون شيئاً ولا يهتدون؟ حتى لو كان الآباء جهلاء ضالين؟! التقليد الأعمى للآباء والأجداد بدون تفكير هو من أكبر أسباب الضلال. العبرة ليست بالنسب والتقاليد، بل بالحق والدليل. لا تتبع أحداً - حتى لو كان أباك - إذا كان على باطل. اتبع الحق أينما كان.
+                </div>
+                <div class="reflection-english">
+                    "When told 'Follow what Allah revealed,' they say 'We follow what we found our fathers doing!'" When told to follow Allah's revelation, they respond: We follow what we found our fathers doing! "Even though their fathers understood nothing, nor were guided?" Even if the fathers were ignorant and misguided?! Blind following of fathers and ancestors without thinking is one of the biggest causes of misguidance. What matters is not lineage and traditions, but truth and evidence. Don't follow anyone - even if it's your father - if they're upon falsehood. Follow the truth wherever it is.
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>🐑 مثل الكفار | The Parable of Disbelievers</h3>
+                <div class="reflection-arabic">
+                    ومثل الذين كفروا كمثل الذي ينعق بما لا يسمع إلا دعاءً ونداءً! مثل رائع! الكفار كالأنعام التي تسمع صوت الراعي لكن لا تفهم معناه - تسمع الصوت فقط بلا فهم. صم بكم عمي فهم لا يعقلون - صم عن سماع الحق، بكم عن النطق به، عمي عن رؤيته، فلا يفهمون شيئاً. القلب الذي لا يفهم هو قلب ميت. الله يناديهم بالقرآن لكنهم لا يفهمون. احذر أن تكون كالأنعام - تسمع لكن لا تفهم! افتح قلبك وعقلك لكلام الله.
+                </div>
+                <div class="reflection-english">
+                    "The example of disbelievers is like one who shouts at what hears nothing but calls and cries!" Amazing parable! Disbelievers are like cattle that hear the shepherd's voice but don't understand its meaning - hearing only sound without comprehension. "Deaf, dumb, blind, so they don't understand" - deaf to hearing truth, mute from speaking it, blind from seeing it, understanding nothing. A heart that doesn't understand is a dead heart. Allah calls them with the Quran but they don't comprehend. Beware of being like cattle - hearing but not understanding! Open your heart and mind to Allah's words.
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>🍇 كلوا من طيبات ما رزقناكم | Eat from Good Things We Provided</h3>
+                <div class="reflection-arabic">
+                    يا أيها الذين آمنوا كلوا من طيبات ما رزقناكم واشكروا لله إن كنتم إياه تعبدون! خطاب للمؤمنين. كلوا من طيبات - من الحلال الطيب. ما رزقناكم - مما رزقكم الله. واشكروا لله - اشكروا المنعم على النعم. إن كنتم إياه تعبدون - إن كنتم حقاً تعبدون الله وحده. الشكر جزء من العبادة. أكل الحلال عبادة إذا صاحبه شكر. النعمة تستوجب الشكر. كل من طيبات رزق الله، واشكره على كل لقمة.
+                </div>
+                <div class="reflection-english">
+                    "O you who believed, eat from good things We provided and be grateful to Allah if you worship Him!" Address to believers. "Eat from good things" - from lawful, good food. "We provided you" - from what Allah provided. "Be grateful to Allah" - thank the Provider for blessings. "If it is Him you worship" - if you truly worship Allah alone. Gratitude is part of worship. Eating lawful food is worship when accompanied by gratitude. Blessings require thanks. Eat from Allah's good provisions, and thank Him for every bite.
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>🚫 المحرمات القليلة | The Few Prohibitions</h3>
+                <div class="reflection-arabic">
+                    إنما حرم عليكم الميتة والدم ولحم الخنزير وما أهل به لغير الله! أربعة أشياء فقط محرمة: الميتة - الحيوان الذي مات بغير ذكاة، والدم - الدم المسفوح، ولحم الخنزير - الخنزير كله، وما أهل به لغير الله - ما ذُبح على اسم غير الله. فمن اضطر غير باغ ولا عاد فلا إثم عليه - من اضطر للأكل منها بلا تعدي ولا رغبة، فلا إثم. إن الله غفور رحيم - الله يغفر ويرحم المضطر. الإسلام دين الرحمة - المحرمات قليلة، والضرورات تبيح المحظورات.
+                </div>
+                <div class="reflection-english">
+                    "He has only forbidden dead animals, blood, swine flesh, and what's dedicated to other than Allah!" Only four things forbidden: Dead animals - animals that died without proper slaughter, Blood - spilled blood, Swine flesh - all pork, What's dedicated to other than Allah - slaughtered in name of other than Allah. "Whoever is forced by necessity, neither desiring nor transgressing, no sin upon him" - whoever is forced to eat from these without transgression or desire, no sin. "Indeed Allah is Forgiving, Merciful" - Allah forgives and has mercy on the desperate. Islam is a religion of mercy - prohibitions are few, necessities permit prohibitions.
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>🔥 كاتمو العلم يأكلون النار | Concealers of Knowledge Eat Fire</h3>
+                <div class="reflection-arabic">
+                    إن الذين يكتمون ما أنزل الله من الكتاب ويشترون به ثمناً قليلاً أولئك ما يأكلون في بطونهم إلا النار! يكتمون الحق من أجل المال والمصالح الدنيوية. ما يأكلون في بطونهم إلا النار - المال الحرام الذي يأكلونه هو نار في بطونهم! ولا يكلمهم الله يوم القيامة - لا يكلمهم الله (عقوبة عظيمة)، ولا يزكيهم - لا يطهرهم من ذنوبهم، ولهم عذاب أليم - عذاب موجع. كتمان العلم الشرعي من أجل الدنيا من أعظم الجرائم. المال الحرام نار تحرق صاحبها في الدنيا والآخرة.
+                </div>
+                <div class="reflection-english">
+                    "Those who conceal what Allah sent of Scripture and exchange it for small price, consume nothing in their bellies except Fire!" They conceal truth for money and worldly interests. "Consume nothing in bellies except Fire" - the unlawful money they eat is fire in their bellies! "Allah won't speak to them on Judgment Day" - Allah won't speak to them (great punishment), "nor purify them" - won't cleanse them from sins, "painful punishment" - agonizing torment. Concealing religious knowledge for worldly gain is among the greatest crimes. Unlawful money is fire that burns its owner in this life and the hereafter.
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>💸 الصفقة الخاسرة | The Losing Deal</h3>
+                <div class="reflection-arabic">
+                    أولئك الذين اشتروا الضلالة بالهدى والعذاب بالمغفرة! أسوأ صفقة في التاريخ! باعوا الهدى واشتروا الضلالة، باعوا المغفرة واشتروا العذاب! فما أصبرهم على النار! تعجب من صبرهم على استحقاق النار - كأنهم يسعون إليها بإرادتهم! من يترك الحق ويتبع الباطل من أجل الدنيا، فقد باع الجنة واشترى النار. من يكتم الحق من أجل المال، فقد استبدل الهدى بالضلال. أسوأ تجارة على الإطلاق! احذر أن تخسر آخرتك من أجل دنياك.
+                </div>
+                <div class="reflection-english">
+                    "Those who exchanged guidance for error and forgiveness for punishment!" Worst deal in history! They sold guidance and bought misguidance, sold forgiveness and bought punishment! "How patient they are in pursuit of Fire!" Amazement at their patience toward deserving Fire - as if they pursue it willingly! Whoever leaves truth and follows falsehood for this world has sold Paradise and bought Hell. Whoever conceals truth for money has exchanged guidance for misguidance. Worst transaction ever! Beware of losing your hereafter for your worldly life.
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>📖 الكتاب بالحق | The Book in Truth</h3>
+                <div class="reflection-arabic">
+                    ذلك بأن الله نزل الكتاب بالحق! الله أنزل الكتاب - القرآن - بالحق، لا باطل فيه. وإن الذين اختلفوا في الكتاب لفي شقاق بعيد - من اختلفوا في القرآن (بتحريفه أو إنكاره أو كتمانه) في خلاف وعداوة شديدة مع الحق. الكتاب واحد، والحق واحد، لكن الناس يختلفون بسبب أهوائهم ومصالحهم. القرآن حق من عند الله، من خالفه فهو على باطل. تمسك بالقرآن، فهو الحق المبين، ولا تتبع الاختلافات والفرق الضالة.
+                </div>
+                <div class="reflection-english">
+                    "Because Allah sent down the Book in truth!" Allah revealed the Book - the Quran - in truth, no falsehood in it. "Those who differ over the Book are in extreme dissension" - whoever differs about the Quran (by distorting, denying, or concealing it) is in severe conflict and enmity with truth. The Book is one, truth is one, but people differ due to desires and interests. The Quran is truth from Allah, whoever opposes it is upon falsehood. Hold fast to the Quran, for it is clear truth, and don't follow disagreements and misguided sects.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text">
+                "كُلُوا۟ مِن طَيِّبَٰتِ مَا رَزَقْنَٰكُمْ وَٱشْكُرُوا۟ لِلَّهِ"
+            </div>
+            <div class="footer-text">
+                "Eat from the good things We have provided for you and be grateful to Allah"
+            </div>
+            <div class="footer-text">
+                May this daily reflection bring us closer to Allah and increase our understanding of His words
+            </div>
+            <div class="footer-text">
+                🤲 آمين يا رب العالمين | Ameen Ya Rabb Al-Alameen 🤲
+            </div>
+        </div>
+
+        <div class="signature">
+            <div class="signature-header">Designed and Coded by</div>
+            <div class="signature-content">
+                <img src="https://balancedlifeharmony-spec.github.io/signature-/profile.jpg" alt="Emhemed Elahresh" class="signature-profile" onerror="this.style.display='none'">
+                <div class="signature-info">
+                    <div class="signature-name">Emhemed Elahresh</div>
+                    <div class="signature-company">Victory Hour Media</div>
+                    <div class="signature-description">
+                        Creating impactful digital experiences and media solutions. Every project is crafted with attention to detail and user experience in mind.
+                    </div>
+                    <div class="signature-buttons">
+                        <a href="mailto:contact@example.com" class="signature-btn">Email</a>
+                        <a href="https://balancedlifeharmony-spec.github.io/signature-/" target="_blank" class="signature-btn">Website</a>
+                    </div>
+                </div>
+            </div>
+            <div class="signature-copyright">© 2025 Emhemed Elahresh. All rights reserved.</div>
+        </div>
+    </div>
+</body>
+</html>
